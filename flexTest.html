@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/* OTHER STYLES */
+			
+			* {
+				/*直接设置盒子的大小
+				 * 它的值为:
+				 * 1.content-box:在宽度和高度之外绘制内边距和边框(则其width,height为其内容的大小)
+				 * 2.border-box:为元素指定的任何内边距都将在已设定的宽度和高度内绘制(则其width,height为其内容+border+padding的大小)
+				 * 3.inherit:继承父元素的box-sizing属性的值
+				 */
+				box-sizing: border-box;
+				height: :100%;
+			}
+			
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			[class$='-face'] {
+				margin: 16px;
+				padding: 4px;
+				background-color: #E7E7E7;
+				width: 104px;
+				height: 104px;
+				/*该属性的指的是外层的填充方式*/
+				object-fit: contain;
+				/*对象选择器 {box-shadow:[投影方式] X轴偏移量 Y轴偏移量阴影模糊半径 阴影扩展半径 阴影颜色}
+				 * X-offset:阴影水平偏移量，其值可以是正负值。如果值为正值，则阴影在对象的右边，其值为负值时，阴影在对象的左边；
+				 * Y-offset:阴影垂直偏移量，其值也可以是正负值。如果为正值，阴影在对象的底部，其值为负值时，阴影在对象的顶部；
+				 * 阴影模糊半径：此参数可选，，但其值只能是为正值，如果其值为0时，表示阴影不具有模糊效果，其值越大阴影的边缘就越模糊；
+				 * 阴影扩展半径：此参数可选，其值可以是正负值，如果值为正，则整个阴影都延展扩大，反之值为负值时，则缩小；
+				 * 阴影颜色：此参数可选。如不设定颜色，浏览器会取默认色，但各浏览器默认取色不一致，特别是在webkit内核下的safari和chrome浏览器下表现为透明色，
+				 * 在Firefox/Opera下表现为黑色（已验证），建议不要省略此参数。
+				 */
+				box-shadow: inset 0 5px white, inset 0 -5px #bbb, inset 5px 0px #D7D7D7, inset -5px 0px #D7D7D7;
+				border-radius: 10%;
+			}
+			
+			.pip {
+				display: block;
+				width: 24px;
+				height: 24px;
+				border-radius: 50%;
+				margin: 4px;
+				background-color: #333333;
+				box-shadow: inset 0 3px #111, inset 0 -3 #555;
+			}
+			/**********************************flex布局****************************************************/
+			
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			/*1*/
+			.first-face {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			/*2*/
+			.second-face {
+				display: flex;
+				justify-content: space-between;
+			}
+			/*:nth-of-type(n) 选择器匹配属于父元素的特定类型的第 N 个子元素的每个元素.
+			 	 */
+			
+			.second-face .pip:nth-of-type(2) {
+				align-self: flex-end;
+			}
+			/*3*/
+			.third-face {
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.third-face .pip:nth-of-type(2) {
+				align-self: center;
+			}
+			
+			.third-face .pip:nth-of-type(3) {
+				align-self: flex-end;
+			}
+			/*4*/
+			.fourth-face {
+				display: flex;
+				justify-content: space-between;
+			}
+			.fourth-face .column{
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			} 
+			/*5*/
+			.fifth-face{
+				display: flex;
+				justify-content: space-between;
+			}		
+			.fifth-face .column{
+				display: flex;
+				flex-direction: column;
+				justify-content:space-between;
+			}
+			.fifth-face .column:nth-of-type(2){
+				 justify-content: center;
+			}
+			/*6*/
+			.sixth-face{
+				display: flex;				
+				justify-content: space-between;
+			}
+			.sixth-face .column{
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="first-face">
+			<span class="pip"></span>
+		</div>
+		<div class="second-face">
+			<span class="pip"></span>
+			<span class="pip"></span>
+		</div>
+		<div class="third-face">
+			<span class="pip"></span>
+			<span class="pip"></span>
+			<span class="pip"></span>
+		</div>
+		<div class="fourth-face">
+			<div class="column">
+				<span class="pip"></span>
+				<span class="pip"></span>
+			</div>
+			<div class="column">
+				<span class="pip"></span>
+				<span class="pip"></span>
+			</div>			
+		</div>
+		<div class="fifth-face">
+			<div class="column">
+				<span class="pip"></span>
+				<span class="pip"></span>
+			</div>
+			<div class="column">
+				<span class="pip"></span>
+			</div>
+			<div class="column">
+				<span class="pip"></span>
+				<span class="pip"></span>
+			</div>			
+		</div>
+		<div class="sixth-face">
+			<div class="column">
+				<span class="pip"></span>
+				<span class="pip"></span>
+				<span class="pip"></span>
+			</div>			 
+			<div class="column">
+				<span class="pip"></span>
+				<span class="pip"></span>
+				<span class="pip"></span>
+			</div>			
+		</div>
+	</body>
+
+</html>
